@@ -8,10 +8,6 @@ const nextConfig = {
       },
     ],
   },
-  // السطر ده هو اللي بيحل مشكلة Prisma على Vercel
-  outputFileTracingIncludes: {
-    '/api/**/*': ['./node_modules/.prisma/client/**/*'],
-  },
 };
 
 module.exports = nextConfig;
