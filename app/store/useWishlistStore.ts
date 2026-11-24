@@ -30,7 +30,9 @@ export const useWishlistStore = create<WishlistStore>()(
     }),
     {
       name: "la-belle-wishlist",
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() =>
+  typeof window === "undefined" ? (undefined as unknown as Storage) : window.localStorage
+),
       partialize: (state) => ({ items: state.items }),
       skipHydration: true,
     }

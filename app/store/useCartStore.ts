@@ -64,7 +64,9 @@ export const useCartStore = create<CartStore>()(
     }),
     {
       name: "la-belle-cart",
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() =>
+  typeof window === "undefined" ? (undefined as unknown as Storage) : window.localStorage
+),
       partialize: (state) => ({ items: state.items }),
       skipHydration: true,
     }
